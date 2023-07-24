@@ -36,10 +36,7 @@ module.exports = cds.service.impl(async function () {
       req.query.where("LastName <> '' and FirstName <> '' ");
 
       return await BPsrv.transaction(req).send({
-         query: req.query,
-         headers: {
-            apikey: process.env.apikey,
-         },
+         query: req.query
       });
    });
 
@@ -80,10 +77,7 @@ module.exports = cds.service.impl(async function () {
                const bp = await BPsrv.transaction(req).send({
                   query: SELECT.one(this.entities.BusinessPartners)
                      .where({ BusinessPartner: risk.bp_BusinessPartner })
-                     .columns(["BusinessPartner", "LastName", "FirstName"]),
-                  headers: {
-                     apikey: process.env.apikey,
-                  },
+                     .columns(["BusinessPartner", "LastName", "FirstName"])
                });
                risk.bp = bp;
             })
