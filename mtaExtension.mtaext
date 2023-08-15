@@ -1,0 +1,9 @@
+_schema-version: '3.1' 
+ID: risk-management.extension 
+extends: risk-management
+
+modules: 
+  - name: risk-management
+    parameters:
+      disk-quota: 512M
+      memory: 512M
